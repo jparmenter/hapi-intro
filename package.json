@@ -1,0 +1,28 @@
+{
+  "name": "hapi-intro",
+  "version": "0.0.0",
+  "description": "taste test of hapi",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jparmenter/hapi-intro.git"
+  },
+  "keywords": [
+    "node",
+    "hapi",
+    "javascript"
+  ],
+  "author": "Jeremy Parmenter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jparmenter/hapi-intro/issues"
+  },
+  "homepage": "https://github.com/jparmenter/hapi-intro",
+  "dependencies": {
+    "hapi": "^6.7.1",
+    "joi": "^4.6.2"
+  }
+}

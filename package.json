@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/jparmenter/hapi-intro",
   "dependencies": {
+    "catbox-redis": "^1.0.4",
     "hapi": "^6.7.1",
+    "jade": "^1.6.0",
     "joi": "^4.6.2"
   }
 }

@@ -1,6 +1,19 @@
 var Hapi = require('hapi');
 var Joi = require('joi');
-var server = new Hapi.Server(3000);
+var server = new Hapi.Server(3000, "localhost", {
+  views: {
+    engines: {
+      jade: require("jade")
+    },
+    path: "./views"
+  }
+});
+
+server.method("getColor", function(name, next) {
+  var colors = ["red", "blue", "indigo", "violet", "green"];
+  var color = colors[Math.floor(Math.random() * colors.length)];
+  next(null, color);
+});
 
 server.route({
   path: "/",
@@ -13,11 +26,14 @@ server.route({
 var helloConfig = {
   handler: function(request, reply) {
     var names = request.params.name.split("/");
-    reply({
-      first: names[0],
-      last: names[1],
-      mood: request.query.mood,
-      age: request.query.age
+    server.methods.getColor(request.params.name, function(err, color) {
+      reply.view("hello", {
+        first: names[0],
+        last: names[1],
+        mood: request.query.mood,
+        age: request.query.age,
+        color: color
+      });
     });
   },
   validate: {
